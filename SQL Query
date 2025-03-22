@@ -1,0 +1,16 @@
+SELECT * FROM HMDA.hmda;
+/*disable safe updates to allow modifications*/
+SET SQL_SAFE_UPDATES = 0;
+UPDATE HMDA.hmda SET pirat = round(pirat,2);
+UPDATE HMDA.hmda SET hirat = round(hirat,2);
+UPDATE HMDA.hmda SET lvrat = round(lvrat,2);
+UPDATE HMDA.hmda SET unemp = round(unemp,2);
+UPDATE HMDA.hmda SET deny = (CASE WHEN deny = 'no' THEN 0 ELSE 1 END);
+UPDATE HMDA.hmda SET phist = (CASE WHEN phist = 'no' THEN 0 ELSE 1 END);
+UPDATE HMDA.hmda SET selfemp = (CASE WHEN selfemp = 'no' THEN 0 ELSE 1 END);
+UPDATE HMDA.hmda SET insurance = (CASE WHEN insurance = 'no' THEN 0 ELSE 1 END);
+UPDATE HMDA.hmda SET condomin = (CASE WHEN condomin = 'no' THEN 0 ELSE 1 END);
+UPDATE HMDA.hmda SET afam = (CASE WHEN afam = 'no' THEN 0 ELSE 1 END);
+UPDATE HMDA.hmda SET single = (CASE WHEN single = 'no' THEN 0 ELSE 1 END);
+UPDATE HMDA.hmda SET hschool = (CASE WHEN hschool = 'no' THEN 0 ELSE 1 END);
+SELECT * FROM HMDA.hmda limit 6;
